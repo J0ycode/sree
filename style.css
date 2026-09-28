@@ -1630,9 +1630,38 @@ section {
 }
 
 .footer-attribution {
-  margin-top: 14px;
-  font-size: 0.95rem;
-  line-height: 1.3;
-  color: var(--ink-soft);
-  opacity: 0.75;
+  margin-top: 16px;
+  font-family: var(--font-pixel);
+  font-size: 1.1rem;
+  color: var(--red);
+}
+
+/* ============================================
+   TIME LOCK
+   ============================================ */
+[hidden] {
+  display: none !important;
+}
+
+.intro-timer {
+  padding: 10px 16px 8px;
+  font-family: var(--font-digits);
+  font-size: clamp(1.3rem, 5vw, 2rem);
+  letter-spacing: 2px;
+  color: var(--ink);
+  background: var(--butter);
+  box-shadow: 0 0 0 4px var(--ink), 6px 8px 0 4px rgba(58, 32, 18, 0.35);
+  font-variant-numeric: tabular-nums;
+}
+
+.intro-card.locked {
+  cursor: not-allowed;
+}
+
+.intro-card.locked .intro-cta {
+  animation: none;
+}
+
+.intro-card.nope .intro-box {
+  animation: shake 0.45s steps(4) 1;
 }

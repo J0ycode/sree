@@ -212,8 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (introOpened) return;
     introOpened = true;
     introGift.classList.add('opening');
-    // Opening the gift is a real tap, so the browser allows the music box to start here
-    startBackgroundMusic();
     setTimeout(() => {
       burstConfetti(...centerOf(introGift.querySelector('.intro-box')), 60);
     }, 450);
@@ -223,7 +221,56 @@ document.addEventListener('DOMContentLoaded', () => {
       startAgeGag();
     }, 900);
   }
-  introGift.addEventListener('click', openGift);
+
+  // ===================== TIME LOCK =====================
+  // The gift stays locked until 11:59:55 PM. From 11:40 PM a countdown appears and
+  // ticks down to the unlock. Uses the viewer's own device clock / time zone.
+  const TIMER_FROM = new Date(2026, 8, 28, 23, 40, 0);  // 28 Sep 2026, 11:40 PM (month is 0-indexed)
+  const UNLOCK_AT = new Date(2026, 8, 28, 23, 59, 55);  // 28 Sep 2026, 11:59:55 PM
+  const introTitle = introGift.querySelector('.intro-title');
+  const introTimer = document.getElementById('introTimer');
+  const introCta = document.getElementById('introCta');
+  const introTitleText = introTitle.textContent;
+  let giftLocked = false;
+  let lockTimer = null;
+
+  function updateLock() {
+    const now = new Date();
+    const locked = now < UNLOCK_AT;
+    const left = UNLOCK_AT - now;
+
+    if (locked && now >= TIMER_FROM) {
+      const m = Math.floor(left / 60000);
+      const s = Math.floor((left % 60000) / 1000);
+      introTimer.textContent = [m, s].map(n => String(n).padStart(2, '0')).join(':');
+      introTimer.hidden = false;
+    } else {
+      introTimer.hidden = true;
+    }
+    if (!locked) clearInterval(lockTimer);
+
+    giftLocked = locked;
+    introGift.classList.toggle('locked', locked);
+    introGift.setAttribute('aria-label', locked ? 'Gift locked until 11:59 PM' : 'Open your gift');
+    introTitle.textContent = locked ? 'Something special is coming…' : introTitleText;
+    introCta.textContent = locked ? 'Unlocks at 11:59 PM 🔒' : 'Click to open your gift';
+  }
+
+  updateLock();
+  lockTimer = setInterval(updateLock, 1000);
+
+  introGift.addEventListener('click', () => {
+    if (giftLocked) {
+      // Not yet! A little "nope" shake
+      introGift.classList.remove('nope');
+      void introGift.offsetWidth; // restart the animation
+      introGift.classList.add('nope');
+      return;
+    }
+    // Opening the gift is a real tap, so the browser allows the music box to start here
+    startBackgroundMusic();
+    openGift();
+  });
 
   // ===================== SPARKLE PARTICLES =====================
   const sparkleContainer = document.getElementById('sparkleContainer');
@@ -526,6 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tracks = [...document.querySelectorAll('.playlist-track')];
   let current = -1;
   let soundOn = false;
+  let inPlaylist = false;
   player.volume = 0.8;
 
   function trackInfo(track) {
@@ -557,7 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Keep the music box, record, and floating button in sync with what's audible
   function refresh() {
     const song = songPlaying();
-    if (soundOn && !song && !document.hidden) background.start();
+    if (soundOn && !song && !document.hidden && !inPlaylist) background.start();
     else background.stop();
     turntable.classList.toggle('playing', song);
     musicToggle.classList.toggle('paused', !soundOn);
@@ -630,6 +678,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Hush the music while the tab is in the background
   document.addEventListener('visibilitychange', refresh);
+
+  // Fade the music box out while the playlist section fills the middle of the
+  // screen, and bring it back once you scroll away from it
+  new IntersectionObserver(([entry]) => {
+    inPlaylist = entry.isIntersecting;
+    refresh();
+  }, { rootMargin: '-45% 0px -45% 0px' }).observe(document.getElementById('playlist'));
 
   function startBackgroundMusic() {
     soundOn = true;
