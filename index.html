@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A cozy little birthday gift for Sreenandha — filled with love, memories, and warm wishes.">
+  <title>Happy Birthday, Sreenandha ✦</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+</head>
+<body class="locked">
+
+  <!-- ===================== GIFT INTRO ===================== -->
+  <div class="intro gingham-green" id="intro">
+    <span class="deco sprite intro-deco-1" data-sprite="mushroom"></span>
+    <span class="deco sprite intro-deco-2" data-sprite="heart"></span>
+    <span class="deco sprite intro-deco-3" data-sprite="star"></span>
+    <span class="deco sprite intro-deco-4" data-sprite="mushroom"></span>
+
+    <button class="intro-card px-border" id="introGift" aria-label="Open your gift">
+      <span class="intro-title">Happiest Birthday, Sreenandha!</span>
+      <span class="intro-box sprite" data-sprite="gift"></span>
+      <span class="intro-cta">Click to open your gift</span>
+    </button>
+  </div>
+
+  <!-- ===================== SPARKLE PARTICLES ===================== -->
+  <div class="sparkle-container" id="sparkleContainer"></div>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero gingham-green" id="hero">
+    <span class="deco sprite hero-deco-1" data-sprite="mushroom"></span>
+    <span class="deco sprite hero-deco-2" data-sprite="heart"></span>
+    <span class="deco sprite hero-deco-3" data-sprite="star"></span>
+
+    <div class="hero-card px-border">
+      <p class="hero-date">✦ A celebration of you ✦</p>
+      <h1 class="hero-title">Happy Birthday! <span class="sprite inline-heart" data-sprite="heart"></span></h1>
+      <p class="hero-greeting">Wishing the happiest birthday to</p>
+      <p class="hero-name" title="Click me!">Sreenandha</p>
+
+      <div class="hero-age-wrapper" id="heroAge">
+        <span class="hero-age-label">turning</span>
+        <span class="hero-age-number" id="ageNumber">81</span>
+        <span class="hero-age-oops" id="ageOops"></span>
+      </div>
+
+      <p class="hero-tagline">May this year bring you happiness, love, and beautiful memories.</p>
+
+      <p class="hero-pick"><span>Click one of my gifts for you</span></p>
+      <nav class="hero-gifts" aria-label="Gifts">
+        <a href="#gallery" class="hero-gift">
+          <span class="sprite" data-sprite="camera"></span>
+          <span class="gift-tag">Memories</span>
+        </a>
+        <a href="#letter" class="hero-gift">
+          <span class="sprite" data-sprite="envelope"></span>
+          <span class="gift-tag">Message</span>
+        </a>
+        <a href="#playlist" class="hero-gift">
+          <span class="sprite" data-sprite="cassette"></span>
+          <span class="gift-tag">Music</span>
+        </a>
+      </nav>
+    </div>
+
+    <figure class="hero-polaroid" aria-hidden="true">
+      <img src="images/gallery/photo4.jpg" alt="">
+      <figcaption>birthday girl ♡</figcaption>
+    </figure>
+
+  </section>
+
+  <!-- ===================== COUNTDOWN ===================== -->
+  <section class="countdown-section polka" id="countdown">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="section-label">Since 18 Sept 2025</p>
+        <h2 class="section-title">The Big Day</h2>
+        <p class="section-subtitle">Counting every sec of our bond</p>
+      </header>
+      <div class="countdown-wrapper reveal reveal-delay-1">
+        <div class="countdown-item px-border">
+          <div class="countdown-number" id="cd-days">00</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-item px-border">
+          <div class="countdown-number" id="cd-hours">00</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-item px-border">
+          <div class="countdown-number" id="cd-minutes">00</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div class="countdown-item px-border">
+          <div class="countdown-number" id="cd-seconds">00</div>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LETTER ===================== -->
+  <section class="letter-section brown-check" id="letter">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="section-label">From the heart</p>
+        <h2 class="section-title">A Letter for You</h2>
+      </header>
+
+      <div class="letter-stage reveal reveal-delay-1" id="letterStage">
+        <span class="deco sprite letter-deco-1" data-sprite="mushroom"></span>
+        <span class="deco sprite letter-deco-2" data-sprite="heart"></span>
+
+        <button class="envelope px-border" id="envelope" aria-label="Open the letter">
+          <span class="env-pocket"></span>
+          <span class="env-flap"></span>
+          <span class="env-bow sprite" data-sprite="bow"></span>
+          <span class="env-text">Click me :)</span>
+        </button>
+
+        <article class="letter-card" id="letterCard">
+          <p class="letter-greeting">Dearest Sreenandha,</p>
+          <div class="letter-body">
+            <p>
+              Today is all about you — the person who lights up every room, who turns ordinary moments
+              into extraordinary memories, and who makes the world a more beautiful place simply by being in it.
+            </p>
+            <p>
+              Your kindness, your laughter, your warmth — these are gifts that you give to everyone around you,
+              every single day. And today, it's our turn to celebrate the incredible soul that you are.
+            </p>
+            <p>
+              May this new chapter of your life be filled with all the dreams you haven't yet imagined,
+              all the love you truly deserve, and all the happiness your heart can hold. Here's to you —
+              today, tomorrow, and always.
+            </p>
+          </div>
+          <p class="letter-signature">With all my love ♡</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REASONS ===================== -->
+  <section class="reasons-section polka" id="reasons">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="section-label">Because you deserve to know</p>
+        <h2 class="section-title">Why You're So Special</h2>
+        <p class="section-subtitle">Just a few of the countless reasons the world is better with you in it</p>
+      </header>
+      <div class="reasons-grid">
+        <div class="reason-card reveal reveal-delay-1">
+          <div class="reason-number">01</div>
+          <h3 class="reason-title">Your Infectious Laughter</h3>
+          <p class="reason-text">The way you laugh can turn the darkest day into the brightest one. Your joy is truly contagious.</p>
+        </div>
+        <div class="reason-card reveal reveal-delay-2">
+          <div class="reason-number">02</div>
+          <h3 class="reason-title">Your Endless Kindness</h3>
+          <p class="reason-text">You always know exactly when someone needs a hug, a word of encouragement, or just your presence.</p>
+        </div>
+        <div class="reason-card reveal reveal-delay-3">
+          <div class="reason-number">03</div>
+          <h3 class="reason-title">Your Beautiful Spirit</h3>
+          <p class="reason-text">There's a warmth and glow about you that makes everyone feel welcome and loved. You're truly one of a kind.</p>
+        </div>
+        <div class="reason-card reveal reveal-delay-1">
+          <div class="reason-number">04</div>
+          <h3 class="reason-title">Your Incredible Strength</h3>
+          <p class="reason-text">Through every challenge, you rise with grace and resilience. Your strength inspires everyone around you.</p>
+        </div>
+        <div class="reason-card reveal reveal-delay-2">
+          <div class="reason-number">05</div>
+          <h3 class="reason-title">Your Dreamer Heart</h3>
+          <p class="reason-text">You see magic where others see the ordinary, and you chase your dreams with a passion that moves mountains.</p>
+        </div>
+        <div class="reason-card reveal reveal-delay-3">
+          <div class="reason-number">06</div>
+          <h3 class="reason-title">Your Unforgettable Smile</h3>
+          <p class="reason-text">That smile of yours? It's like sunshine breaking through clouds — pure, radiant, and absolutely unforgettable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section class="gallery-section cork" id="gallery">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="section-label">Moments we treasure</p>
+        <h2 class="section-title">Our Memories</h2>
+        <p class="section-subtitle">Every photo holds a story, every story holds a piece of us</p>
+      </header>
+      <div class="gallery-grid reveal reveal-delay-1">
+        <figure class="gallery-item" style="--rot:-3deg">
+          <img src="images/gallery/photo1.jpg" alt="Sreenandha smiling in a saree" loading="lazy">
+          <figcaption>Pretty in a saree ✦</figcaption>
+        </figure>
+        <figure class="gallery-item wide" style="--rot:2deg">
+          <img src="images/gallery/photo2.jpg" alt="Classroom selfie together" loading="lazy">
+          <figcaption>Classroom days ♡</figcaption>
+        </figure>
+        <figure class="gallery-item wide" style="--rot:-1.5deg">
+          <img src="images/gallery/photo3.jpg" alt="Café selfie together" loading="lazy">
+          <figcaption>Tea together ✦</figcaption>
+        </figure>
+        <figure class="gallery-item" style="--rot:2.5deg">
+          <img src="images/gallery/photo4.jpg" alt="Sreenandha in a green dress" loading="lazy">
+          <figcaption>That smile though ♡</figcaption>
+        </figure>
+        <figure class="gallery-item wide" style="--rot:-2deg">
+          <img src="images/gallery/photo5.jpg" alt="Selfie with little hearts" loading="lazy">
+          <figcaption>Hearts everywhere ♡</figcaption>
+        </figure>
+        <figure class="gallery-item wide" style="--rot:1.5deg">
+          <img src="images/gallery/photo6.jpg" alt="Snapchat selfie with pink hearts" loading="lazy">
+          <figcaption>Us, always ✦</figcaption>
+        </figure>
+      </div>
+      <p class="gallery-note">✦ …and so many more memories to come ✦</p>
+    </div>
+  </section>
+
+  <!-- ===================== PLAYLIST ===================== -->
+  <section class="playlist-section gingham-mint" id="playlist">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="section-label">Curated with love</p>
+        <h2 class="section-title">Your Birthday Playlist</h2>
+        <p class="section-subtitle">Songs that remind me of you — press play and feel the love</p>
+      </header>
+
+      <div class="playlist-layout reveal reveal-delay-1">
+        <div class="player-col">
+          <div class="speech-bubble px-border">These songs remind me of you!</div>
+          <div class="turntable px-border" id="turntable">
+            <div class="turntable-deck">
+              <div class="vinyl"><div class="vinyl-label"><span class="sprite" data-sprite="heart"></span></div></div>
+              <div class="tonearm"></div>
+            </div>
+            <div class="turntable-knobs"><span></span><span></span><span></span></div>
+          </div>
+          <p class="now-playing" id="nowPlaying">▶ pick a song</p>
+          <audio id="player" preload="none"></audio>
+          <audio id="bgm" loop preload="auto"></audio>
+        </div>
+
+        <div class="playlist-wrapper px-border">
+          <div class="playlist-header">
+            <div class="playlist-cover sprite" data-sprite="cassette"></div>
+            <div class="playlist-info">
+              <h3>Songs for Sreenandha ✦</h3>
+              <p>A birthday playlist • 8 songs</p>
+            </div>
+          </div>
+          <ul class="playlist-tracks">
+            <li class="playlist-track" data-src="music/01.mp3">
+              <span class="track-number">1</span>
+              <div class="track-info">
+                <div class="track-name">Golden Hour</div>
+                <div class="track-artist">JVKE</div>
+              </div>
+              <span class="track-duration">3:29</span>
+              <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+            </li>
+            <li class="playlist-track" data-src="music/02.mp3">
+              <span class="track-number">2</span>
+              <div class="track-info">
+                <div class="track-name">Perfect</div>
+                <div class="track-artist">Ed Sheeran</div>
+              </div>
+              <span class="track-duration">4:23</span>
+              <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+            </li>
+            <li class="playlist-track" data-src="music/03.mp3">
+              <span class="track-number">3</span>
+              <div class="track-info">
+                <div class="track-name">Happy Birthday</div>
+                <div class="track-artist">Stevie Wonder</div>
+              </div>
+              <span class="track-duration">5:58</span>
+              <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+            </li>
+            <li class="playlist-track" data-src="music/04.mp3">
+              <span class="track-number">4</span>
+              <div class="track-info">
+                <div class="track-name">You Are the Sunshine of My Life</div>
+                <div class="track-artist">Stevie Wonder</div>
+              </div>
+              <span class="track-duration">2:58</span>
+              <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+            </li>
+            <li class="playlist-track" data-src="music/05.mp3">
+              <span class="track-number">5</span>
+              <div class="track-info">
+                <div class="track-name">Count on Me</div>
+                <div class="track-artist">Bruno Mars</div>
+              </div>
+              <span class="track-duration">3:17</span>
+              <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+            </li>
+            <li class="playlist-track" data-src="music/06.mp3">
+              <span class="track-number">6</span>
+              <div class="track-info">
+                <div class="track-name">Best Day of My Life</div>
+                <div class="track-artist">American Authors</div>
+              </div>
+              <span class="track-duration">3:14</span>
+              <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+            </li>
+            <li class="playlist-track" data-src="music/07.mp3">
+              <span class="track-number">7</span>
+              <div class="track-info">
+                <div class="track-name">A Thousand Years</div>
+                <div class="track-artist">Christina Perri</div>
+              </div>
+              <span class="track-duration">4:45</span>
+              <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+            </li>
+            <li class="playlist-track" data-src="music/08.mp3">
+              <span class="track-number">8</span>
+              <div class="track-info">
+                <div class="track-name">You've Got a Friend in Me</div>
+                <div class="track-artist">Randy Newman</div>
+              </div>
+              <span class="track-duration">2:04</span>
+              <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer gingham-red">
+    <div class="container">
+      <div class="footer-card px-border">
+        <div class="footer-heart sprite" data-sprite="heart"></div>
+        <p class="footer-message">Made with love, just for you</p>
+        <p class="footer-name">Happy birthday thalleee</p>
+        <div class="footer-divider"></div>
+        <p class="footer-credit">✦ With all the love in the world ✦</p>
+        <p class="footer-attribution">Background music: “Happy Birthday Music Box Loop” by Serge Quadrado (CC BY-NC 3.0) via the Internet Archive · Song previews courtesy of iTunes</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== BACK TO TOP ===================== -->
+  <button class="back-to-top px-border" id="backToTop" aria-label="Back to top">▲</button>
+
+  <!-- ===================== MUSIC TOGGLE ===================== -->
+  <button class="music-toggle px-border paused" id="musicToggle" title="Play / pause music" aria-label="Play or pause music">
+    <div class="music-bars">
+      <div class="music-bar"></div>
+      <div class="music-bar"></div>
+      <div class="music-bar"></div>
+      <div class="music-bar"></div>
+    </div>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
