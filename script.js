@@ -223,9 +223,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ===================== TIME LOCK =====================
-  // The gift stays locked until 11:59:55 PM. From 11:40 PM a countdown appears and
-  // ticks down to the unlock. Uses the viewer's own device clock / time zone.
-  const TIMER_FROM = new Date(2026, 8, 28, 23, 40, 0);  // 28 Sep 2026, 11:40 PM (month is 0-indexed)
+  // Open for a 10-minute sneak peek until OPEN_UNTIL, then locked again with a
+  // countdown until UNLOCK_AT. Uses the viewer's own device clock / time zone.
+  const OPEN_UNTIL = new Date(2026, 8, 28, 23, 18, 20); // 28 Sep 2026, 11:18:20 PM (month is 0-indexed)
   const UNLOCK_AT = new Date(2026, 8, 28, 23, 59, 55);  // 28 Sep 2026, 11:59:55 PM
   const introTitle = introGift.querySelector('.intro-title');
   const introTimer = document.getElementById('introTimer');
@@ -236,18 +236,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateLock() {
     const now = new Date();
-    const locked = now < UNLOCK_AT;
+    const locked = now >= OPEN_UNTIL && now < UNLOCK_AT;
     const left = UNLOCK_AT - now;
 
-    if (locked && now >= TIMER_FROM) {
-      const m = Math.floor(left / 60000);
+    // The sneak peek just ended while the site was open: back to the locked gift
+    if (locked && introOpened) {
+      location.reload();
+      return;
+    }
+
+    if (locked) {
+      const h = Math.floor(left / 3600000);
+      const m = Math.floor((left % 3600000) / 60000);
       const s = Math.floor((left % 60000) / 1000);
-      introTimer.textContent = [m, s].map(n => String(n).padStart(2, '0')).join(':');
+      introTimer.textContent = (h ? [h, m, s] : [m, s]).map(n => String(n).padStart(2, '0')).join(':');
       introTimer.hidden = false;
     } else {
       introTimer.hidden = true;
     }
-    if (!locked) clearInterval(lockTimer);
+    if (now >= UNLOCK_AT) clearInterval(lockTimer);
 
     giftLocked = locked;
     introGift.classList.toggle('locked', locked);
